@@ -18,23 +18,24 @@ router.post("/", async(req, res) => {
   // const respon=await validateListNames(userBody, { abortEarly: false }).catch(err=>err)  
   
   //   if(respon.errors) return res.status(400).send("something is wrong");
-    // let newStoreStock=new StoreStock(userBody);
-    // const storeStock=await StoreStock.save().catch(err=>err);
-  // res.status(201).send(storeStock)
-  // console.log(userBody)
+    let newStoreStock=new storeStock(userBody);
+    const st_stock=await newStoreStock.save().catch(err=>err);
+  res.status(201).send(st_stock)
+  console.log(userBody)
   });
 
 router.get("/", async(req, res) => {
   const st=await storeStock.find().catch(err=>{});
   res.send(st)
 });
-router.get("/:userId/:gting", async(req, res) => {
+router.get("/:userId/:gting/:productId", async(req, res) => {
   let userId=req.params.userId;
-  let gting=req.params.gting;
-  const st=await storeStock.find({userId,Gting:gting}).catch(err=>{});
+  let Gting=req.params.gting;
+  let productId=req.params.productId;
+  const st=await storeStock.find({userId,Gting,productId}).catch(err=>{});
   res.send(st)
   console.log(userId)
-  console.log(gting)
+  console.log(Gting)
 });
 
 

@@ -6,6 +6,8 @@ const storeStockSchema = new mongoose.Schema({
     productId:String,//required
     storeId:String,
     quantity:Number,
+    newByuPrice:Number,
+    oldByuPrice:Number,
     sellPrice:Number,
     Gting:Number,
 });
@@ -24,6 +26,8 @@ function validatestoreStock(listNames){
         userId:string(),
         quantity:number(),
         sellPrice:number(),
+        newByuPrice:number(),
+        oldByuPrice:number(),
         Gting:number(),
         
     })
