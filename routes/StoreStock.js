@@ -28,14 +28,15 @@ router.get("/", async(req, res) => {
   const st=await storeStock.find().catch(err=>{});
   res.send(st)
 });
-router.get("/:userId/:gting/:productId", async(req, res) => {
-  let userId=req.params.userId;
+router.get("/:storeId/:gting/:productId", async(req, res) => {
+  let storeId=req.params.storeId;
   let Gting=req.params.gting;
   let productId=req.params.productId;
-  const st=await storeStock.find({userId,Gting,productId}).catch(err=>{});
+  const st=await storeStock.find({storeId,Gting,productId}).catch(err=>{});
   res.send(st)
-  console.log(userId)
-  console.log(Gting)
+  console.log("storeId",storeId)
+  console.log("gting",Gting)
+  console.log("prodid",productId)
 });
 
 
