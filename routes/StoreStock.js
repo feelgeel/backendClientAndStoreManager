@@ -32,11 +32,16 @@ router.get("/:storeId/:gting/:productId", async(req, res) => {
   let storeId=req.params.storeId;
   let Gting=req.params.gting;
   let productId=req.params.productId;
-  const st=await storeStock.find({storeId}).catch(err=>{});
+  const st=await storeStock.find({Gting,productId,storeId}).catch(err=>{});
   res.send(st)
-  console.log("storeId",storeId)
-  console.log("gting",Gting)
-  console.log("prodid",productId)
+  // console.log("storeId",storeId)
+  // console.log("gting",Gting)
+  // console.log("prodid",productId)
+});
+router.put("/:id", async(req, res) => {
+const id=req.params.id;
+const st_stock=await storeStock.findByIdAndUpdate(id,req.body,{new:true}).catch(err=>{});
+res.send(st_stock)
 });
 
 
