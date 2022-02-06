@@ -8,6 +8,7 @@ const Byu = require("./routes/Byu");
 const storeStock = require("./routes/StoreStock");
 const store_transaction = require("./routes/store_transaction");
 const store_transaction_prod = require("./routes/store_transaction_prod");
+const store_listNames = require("./routes/store_listNames");
 const users = require("./routes/users");
 const user = require("./routes/user");
 const auth = require("./routes/auth");
@@ -31,6 +32,7 @@ app.use("/api/listNames", listNames);
 
 app.use("/api/st_trans", store_transaction);
 app.use("/api/st_trans_prod", store_transaction_prod);
+app.use("/api/st_listNames", store_listNames);
 app.use("/api/products", Products);
 app.use("/api/byu", Byu);
 app.use("/api/storeStock", storeStock);
