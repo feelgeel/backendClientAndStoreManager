@@ -32,7 +32,7 @@ router.get("/:storeId/:gting/:productId", async(req, res) => {
   let storeId=req.params.storeId;
   let Gting=req.params.gting;
   let productId=req.params.productId;
-  const st=await storeStock.find({Gting,productId,storeId}).catch(err=>{});
+  const st=await storeStock.find({storeId,Gting,productId}).catch(err=>{});
   res.send(st)
   // console.log("storeId",storeId)
   // console.log("gting",Gting)

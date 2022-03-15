@@ -8,8 +8,10 @@ const storeStockSchema = new mongoose.Schema({
     quantity:Number,
     newByuPrice:Number,
     oldByuPrice:Number,
+    ByuPrice:Number,
     sellPrice:Number,
     Gting:Number,
+    Benefit:Number,
 });
 // _id:"fhkdsvh85vue",
 //     productId:"hfdtjksf484f"
