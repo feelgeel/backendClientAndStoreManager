@@ -28,13 +28,13 @@ router.get("/", async(req, res) => {
   const st=await storeStock.find().catch(err=>{});
   res.send(st)
 });
-router.get("/:storeId/:gting/:productId", async(req, res) => {
-  let storeId=req.params.storeId;
+router.get("/:userId/:gting/:productId", async(req, res) => {
+  let userId=req.params.userId;
   let Gting=req.params.gting;
   let productId=req.params.productId;
-  const st=await storeStock.find({storeId,Gting,productId}).catch(err=>{});
+  const st=await storeStock.find({userId,Gting,productId}).catch(err=>{});
   res.send(st)
-  // console.log("storeId",storeId)
+  // console.log("userId",userId)
   // console.log("gting",Gting)
   // console.log("prodid",productId)
 });
@@ -43,6 +43,10 @@ const id=req.params.id;
 const st_stock=await storeStock.findByIdAndUpdate(id,req.body,{new:true}).catch(err=>{});
 res.send(st_stock)
 });
-
+router.delete("/:id", async(req, res) => {
+const id=req.params.id;
+const st_stock=await storeStock.findByIdAndRemove(id).catch(err=>{});
+res.send(st_stock)
+});
 
 module.exports = router;

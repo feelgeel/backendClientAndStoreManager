@@ -9,6 +9,14 @@ const storeStock = require("./routes/StoreStock");
 const store_transaction = require("./routes/store_transaction");
 const store_transaction_prod = require("./routes/store_transaction_prod");
 const store_listNames = require("./routes/store_listNames");
+const store_manual_order_list = require("./routes/store_manual_order_list");
+const store_manual_order_products =
+ require("./routes/store_manual_order_products");
+ const store_list_order = require("./routes/store_list_order");
+const store_order_products =
+ require("./routes/store_order_products")
+const client_listNames = require("./routes/client_listNames");
+const client_products = require("./routes/client_products");
 const sell_listNames = require("./routes/sell_listNames");
 const sell_products = require("./routes/sell_Products");
 const users = require("./routes/users");
@@ -34,9 +42,15 @@ app.use("/api/listNames", listNames);
 
 app.use("/api/st_trans", store_transaction);
 app.use("/api/st_trans_prod", store_transaction_prod);
+app.use("/api/st_man_order_list", store_manual_order_list);
+app.use("/api/st_order_list", store_list_order);
+app.use("/api/st_man_order_products", store_manual_order_products);
+app.use("/api/st_order_products", store_order_products);
 app.use("/api/st_listNames", store_listNames);
 app.use("/api/sell_listNames", sell_listNames);
 app.use("/api/sell_products", sell_products);
+app.use("/api/client_listNames", client_listNames);
+app.use("/api/client_products", client_products);
 app.use("/api/products", Products);
 app.use("/api/byu", Byu);
 app.use("/api/storeStock", storeStock);

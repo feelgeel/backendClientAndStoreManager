@@ -2,7 +2,7 @@ const  mongoose = require('mongoose');
 
 const {string,object, number}=require("yup");
 
-sell_productsSchema = new mongoose.Schema({
+st_manual_order_productsSchema = new mongoose.Schema({
     timestamp:Number,
     Gting:Number,
     userId:String,
@@ -10,6 +10,7 @@ sell_productsSchema = new mongoose.Schema({
      listId:String,
     quantity:Number,
     price:Number,
+    benefit:Number
 });
 // _id:"fhkdsvh85vue",
 //     productId:"hfdtjksf484f"
@@ -18,7 +19,7 @@ sell_productsSchema = new mongoose.Schema({
 //     quantity:5,
 //     status:"true",
 //     modes:"client",
-const  sell_products = mongoose.model('sell_products', sell_productsSchema);
+const  st_manual_order_products = mongoose.model('store_manual_order_products', st_manual_order_productsSchema);
 
 function validatest_transaction(listNames){
     let schema=object().shape({
@@ -38,5 +39,5 @@ console.log(res);
 }
 // query_db()
 
-exports.sell_products=sell_products;
+exports.st_manual_order_products=st_manual_order_products;
 exports.validatest_transaction=validatest_transaction;

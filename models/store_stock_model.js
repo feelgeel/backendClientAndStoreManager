@@ -4,14 +4,17 @@ const {string,object, number}=require("yup");
 
 const storeStockSchema = new mongoose.Schema({
     productId:String,//required
-    storeId:String,
+    userId:String,
     quantity:Number,
-    newByuPrice:Number,
-    oldByuPrice:Number,
+    // newByuPrice:Number,
+    // oldByuPrice:Number,
     ByuPrice:Number,
     sellPrice:Number,
     Gting:Number,
     Benefit:Number,
+    perimationDate:Number,
+    listId:String,
+
 });
 // _id:"fhkdsvh85vue",
 //     productId:"hfdtjksf484f"

@@ -28,5 +28,9 @@ router.get("/", async(req, res) => {
   const store_Trans=await st_transaction.find().catch(err=>{});
   res.send(store_Trans)
 });
-
+router.get("/:id", async(req, res) => {
+  let id=req.params.id
+  const store_Trans=await st_transaction.find(id).catch(err=>{});
+  res.send(store_Trans)
+});
 module.exports = router;
