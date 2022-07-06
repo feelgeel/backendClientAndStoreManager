@@ -3,9 +3,13 @@ const  mongoose = require('mongoose');
 const {string,object, number}=require("yup");
 
 st_transactionSchema = new mongoose.Schema({
-    storeId:String,
+    clientId:String,
     supplierId:String,
-    addedDate:Number,
+    timeStamp:Number,
+    listId:String,
+    status:String,
+    paymentMethode:String,
+    ticket:Number,
 });
 // _id:"fhkdsvh85vue",
 //     productId:"hfdtjksf484f"

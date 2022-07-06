@@ -2,17 +2,13 @@ const  mongoose = require('mongoose');
 
 const {string,object, number}=require("yup");
 
-st_List_order_productsSchema = new mongoose.Schema({
-    timestamp:Number,
-    Gting:Number,
+const globalStoreStockSchema = new mongoose.Schema({
+     productId:String,//required
     userId:String,
-    productId:String,
-     listId:String,
     quantity:Number,
-    timeStamp:Number,
-    price:Number,
     image_front_url:String,
-    benefit:Number,
+    Gting:Number,
+    
 });
 // _id:"fhkdsvh85vue",
 //     productId:"hfdtjksf484f"
@@ -21,14 +17,17 @@ st_List_order_productsSchema = new mongoose.Schema({
 //     quantity:5,
 //     status:"true",
 //     modes:"client",
-const  st_list_order_products = mongoose.model('store_list_order_products', st_List_order_productsSchema);
+const globalStoreStock= mongoose.model('globalStoreStock', globalStoreStockSchema);
 
-function validatest_transaction(listNames){
+function validatestoreStock(listNames){
     let schema=object().shape({
-        storeId:string(),
-        supplierId:string(),
-        addedDate:number(),
-        // prod:array(),
+        productId:string(),
+        userId:string(),
+        quantity:number(),
+        sellPrice:number(),
+        newByuPrice:number(),
+        oldByuPrice:number(),
+        Gting:number(),
         
     })
     }
@@ -41,5 +40,5 @@ console.log(res);
 }
 // query_db()
 
-exports.st_list_order_products=st_list_order_products;
-exports.validatest_transaction=validatest_transaction;
+exports.globalStoreStock=globalStoreStock;
+exports.validatestoreStock=validatestoreStock;

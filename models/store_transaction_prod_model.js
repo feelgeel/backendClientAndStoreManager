@@ -8,7 +8,9 @@ st_transactionSchema = new mongoose.Schema({
     Gting:Number,
     price:Number,
     quantity:Number,
-    benefit:Number,
+    status:String,
+    paymentMethode:String,
+    stockQuantity:Number
 });
 // _id:"fhkdsvh85vue",
 //     productId:"hfdtjksf484f"

@@ -41,7 +41,12 @@ router.get("/", async(req, res) => {
   const users=await User.find().catch(err=>{});
   res.send(users)
 });
-router.put("/update/:id", async(req, res) => {
+router.get("/:id", async(req, res) => {
+  let id=req.params.id
+  const users=await User.find({_id:id}).catch(err=>{});
+  res.send(users)
+});
+router.put("/:id", async(req, res) => {
   const id=req.params.id;
   // console.log(userId)
   const users=await User.findByIdAndUpdate(id,req.body,{new:true}).catch(err=>{});

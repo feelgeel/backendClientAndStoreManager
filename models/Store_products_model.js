@@ -9,6 +9,7 @@ st_productsSchema = new mongoose.Schema({
     productId:String,
      listId:String,
     quantity:Number,
+    stockAlert:Number,
 });
 // _id:"fhkdsvh85vue",
 //     productId:"hfdtjksf484f"

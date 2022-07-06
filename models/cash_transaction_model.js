@@ -2,16 +2,13 @@ const  mongoose = require('mongoose');
 
 const {string,object, number}=require("yup");
 
-st_manual_order_productsSchema = new mongoose.Schema({
-    timestamp:Number,
-    Gting:Number,
-    userId:String,
-    productId:String,
-     listId:String,
-    quantity:Number,
-    ByuPrice:Number,
-    benefit:Number,
-    stockAlert:Number,
+cash_transactionSchema = new mongoose.Schema({
+    from:String,
+    to:String,
+    cash:Number,
+    timeStamp:Number,
+    transactionId:String,
+    status:Boolean,
 });
 // _id:"fhkdsvh85vue",
 //     productId:"hfdtjksf484f"
@@ -20,14 +17,24 @@ st_manual_order_productsSchema = new mongoose.Schema({
 //     quantity:5,
 //     status:"true",
 //     modes:"client",
-const  st_manual_order_products = mongoose.model('store_manual_order_products', st_manual_order_productsSchema);
+const  cash_transaction = mongoose.model('cash_transaction', cash_transactionSchema);
 
 function validatest_transaction(listNames){
     let schema=object().shape({
-        storeId:string(),
-        supplierId:string(),
+        productId:string(),
+        userId:string(),
+        listId:string(),
+        status:boolean(),
         addedDate:number(),
-        // prod:array(),
+        checkedDate:number(),
+         product_type:string(),
+        boughtDate:number(),
+        quantity:number(),
+        modes:string(),
+        Gting:number(),
+        image:string(),
+        brands:string(),
+        price:number(),
         
     })
     }
@@ -40,5 +47,5 @@ console.log(res);
 }
 // query_db()
 
-exports.st_manual_order_products=st_manual_order_products;
+exports.cash_transaction=cash_transaction;
 exports.validatest_transaction=validatest_transaction;

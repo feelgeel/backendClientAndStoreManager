@@ -28,9 +28,35 @@ router.get("/", async(req, res) => {
   const store_Trans=await st_transaction.find().catch(err=>{});
   res.send(store_Trans)
 });
+router.get("/client_not_done/:id", async(req, res) => {
+  let id=req.params.id
+  // const store_Trans=await st_transaction.find({clientId:id,status:{$ne:"done"}}).catch(err=>{});
+  const store_Trans=await st_transaction.find({clientId:id,status:{$ne:"done"}}).catch(err=>{});
+  // const store_Trans=await st_transaction.find(id).catch(err=>{});
+  
+  res.send(store_Trans)
+  // console.log(clientId)
+
+});
+router.get("/store_not_done/:id", async(req, res) => {
+  let id=req.params.id
+  // const store_Trans=await st_transaction.find({clientId:id,status:{$ne:"done"}}).catch(err=>{});
+  const store_Trans=await st_transaction.find({supplierId:id,status:{$ne:"done"}}).catch(err=>{});
+  // const store_Trans=await st_transaction.find(id).catch(err=>{});
+  
+  res.send(store_Trans)
+  // console.log(clientId)
+
+});
 router.get("/:id", async(req, res) => {
   let id=req.params.id
   const store_Trans=await st_transaction.find(id).catch(err=>{});
   res.send(store_Trans)
+});
+router.put("/:id", async(req, res) => {
+  const id=req.params.id;
+  const Product=await st_transaction.findByIdAndUpdate(id,req.body,{new:true}).catch(err=>{});
+  
+  res.send(Product)
 });
 module.exports = router;

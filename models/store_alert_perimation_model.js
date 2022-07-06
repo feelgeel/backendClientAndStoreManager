@@ -2,25 +2,16 @@ const  mongoose = require('mongoose');
 
 const {string,object, number}=require("yup");
 
-const storeStockSchema = new mongoose.Schema({
+const  perimationAlertSchema= new mongoose.Schema({
     productId:String,//required
+    Gting:Number,
     userId:String,
     quantity:Number,
     image_front_url:String,
-    // newByuPrice:Number,
-    // oldByuPrice:Number,
-    ByuPrice:Number,
-    sellPrice:Number,
-    Gting:Number,
-    Benefit:Number,
-     stockAlert:String,
-    listType:String,
-     listId:String,
-    perimationDate:String,
-    perimationAlert:Number,
-    priority:Boolean,
+    perimationDate:Number,
 });
-const storeStock= mongoose.model('storeStock', storeStockSchema);
+
+const perimationAlert = mongoose.model('perimationAlert ', perimationAlertSchema);
 
 function validatestoreStock(listNames){
     let schema=object().shape({
@@ -43,5 +34,5 @@ console.log(res);
 }
 // query_db()
 
-exports.storeStock=storeStock;
+exports.perimationAlert=perimationAlert;
 exports.validatestoreStock=validatestoreStock;

@@ -2,7 +2,7 @@ const  mongoose = require('mongoose');
 
 const {string,object, number}=require("yup");
 
-st_manual_order_productsSchema = new mongoose.Schema({
+FamilySchema = new mongoose.Schema({
     timestamp:Number,
     Gting:Number,
     userId:String,
@@ -20,7 +20,7 @@ st_manual_order_productsSchema = new mongoose.Schema({
 //     quantity:5,
 //     status:"true",
 //     modes:"client",
-const  st_manual_order_products = mongoose.model('store_manual_order_products', st_manual_order_productsSchema);
+const  Family = mongoose.model('Family', FamilySchema);
 
 function validatest_transaction(listNames){
     let schema=object().shape({
@@ -40,5 +40,5 @@ console.log(res);
 }
 // query_db()
 
-exports.st_manual_order_products=st_manual_order_products;
+exports.Family=Family;
 exports.validatest_transaction=validatest_transaction;

@@ -2,16 +2,10 @@ const  mongoose = require('mongoose');
 
 const {string,object, number}=require("yup");
 
-st_manual_order_productsSchema = new mongoose.Schema({
+StoreSchema = new mongoose.Schema({
     timestamp:Number,
-    Gting:Number,
-    userId:String,
-    productId:String,
-     listId:String,
-    quantity:Number,
-    ByuPrice:Number,
-    benefit:Number,
-    stockAlert:Number,
+    storeName:String,
+    storeType:String,
 });
 // _id:"fhkdsvh85vue",
 //     productId:"hfdtjksf484f"
@@ -20,7 +14,7 @@ st_manual_order_productsSchema = new mongoose.Schema({
 //     quantity:5,
 //     status:"true",
 //     modes:"client",
-const  st_manual_order_products = mongoose.model('store_manual_order_products', st_manual_order_productsSchema);
+const  Store = mongoose.model('Store', StoreSchema);
 
 function validatest_transaction(listNames){
     let schema=object().shape({
@@ -40,5 +34,5 @@ console.log(res);
 }
 // query_db()
 
-exports.st_manual_order_products=st_manual_order_products;
+exports.Store=Store;
 exports.validatest_transaction=validatest_transaction;

@@ -2,19 +2,19 @@ const  mongoose = require('mongoose');
 
 const {string,object, number}=require("yup");
 
-const  ClientProductSchema = new mongoose.Schema({
-     timestamp:Number,
-    Gting:Number,
+const  SelfServingSchema = new mongoose.Schema({
+    listName:String,//required
+    timestamp:Number,
+    totalQuantity:Number,
     userId:String,
-    productId:String,
-    listId:String,
-    quantity:Number,
-    price:Number,
+    unfinished:Number,
+    totalPrice:Number,
+    finished:Number,
     status:Boolean,
 
 });
 
-const  client_products = mongoose.model('client_product', ClientProductSchema);
+const  self_serving_list = mongoose.model('self_serving_list', SelfServingSchema);
 
 function validateListNames(listNames){
     let schema=object().shape({
@@ -36,5 +36,5 @@ console.log(res);
 }
 // query_db()
 
-exports.client_products=client_products;
+exports.self_serving_list=self_serving_list ;
 exports.validateListNames=validateListNames;

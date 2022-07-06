@@ -12,6 +12,7 @@ const  userSchema = new mongoose.Schema({
     cash:Number,
     password:String,//required
     type:String,//required
+    gender:String,
  
 
 });

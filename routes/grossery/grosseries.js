@@ -46,7 +46,11 @@ router.get("/:name", async(req, res) => {
   const listings=await Grossery.find({categ:categName}).catch(err=>{err});
   res.send(listings);
 });
-
+router.get("/:id", async(req, res) => {
+  const _id=req.params.id;
+  const listings=await Grossery.find({_id}).catch(err=>{err});
+  res.send(listings);
+});
 
 
 router.post(
