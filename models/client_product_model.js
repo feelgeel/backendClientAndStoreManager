@@ -8,6 +8,8 @@ const  ClientProductSchema = new mongoose.Schema({
     userId:String,
     productId:String,
     listId:String,
+    image_front_url:String,
+    brands:String,
     quantity:Number,
     price:Number,
     status:Boolean,

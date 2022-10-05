@@ -4,7 +4,7 @@ const Joi = require("joi");
 // const bcrypt= require('bcrypt');
 // const _= require('lodash');
 
-const {Family}=require("../models/family_model")
+const {Owner}=require("../models/owner_model")
 const schema = {
   name: Joi.string().required().min(2),
   email: Joi.string().email().required(),
@@ -18,29 +18,26 @@ console.log(userBody);
   // const respon=await validateListNames(userBody, { abortEarly: false }).catch(err=>err)  
   
   //   if(respon.errors) return res.status(400).send("something is wrong");
-    let newStorelistName=new Family(userBody);
+    let newStorelistName=new Owner(userBody);
     const user=await newStorelistName.save().catch(err=>err);
   res.status(201).send(user)
   // console.log(userBody)
   });
 
 router.get("/", async(req, res) => {
-  const st_manual_order=await Family.find().catch(err=>{});
+  const st_manual_order=await Owner.find().catch(err=>{});
   res.send(st_manual_order)
 });
-router.get("/:id", async(req, res) => {
-  const id=req.params.id;
+router.get("/:userId", async(req, res) => {
+  const userId=req.params.userId;
   // console.log(userId)
-  const st_manual_order=await Family.find({_id:id}).catch(err=>{});
+  const st_manual_order=await Owner.find({userId}).catch(err=>{});
   res.send(st_manual_order)
 });
 router.put("/:id", async(req, res) => {
   const id=req.params.id;
   // console.log(userId)
-  const st_manual_order=await Family.findByIdAndUpdate(id,req.body,{new:true}).catch(err=>{});
-  console.log(req.body)
-  
-
+  const st_manual_order=await Owner.findByIdAndUpdate(id,req.body,{new:true}).catch(err=>{});
   res.send(st_manual_order)
 });
 router.delete("/remove/:id", async(req, res) => {

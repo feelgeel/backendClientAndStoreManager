@@ -2,16 +2,10 @@ const  mongoose = require('mongoose');
 
 const {string,object, number}=require("yup");
 
-FamilySchema = new mongoose.Schema({
+FatherSchema = new mongoose.Schema({
     timestamp:Number,
-    Gting:Number,
+    familyId:String,
     userId:String,
-    productId:String,
-     listId:String,
-    quantity:Number,
-    ByuPrice:Number,
-    benefit:Number,
-    stockAlert:Number,
 });
 // _id:"fhkdsvh85vue",
 //     productId:"hfdtjksf484f"
@@ -20,7 +14,7 @@ FamilySchema = new mongoose.Schema({
 //     quantity:5,
 //     status:"true",
 //     modes:"client",
-const  Family = mongoose.model('Family', FamilySchema);
+const  Father = mongoose.model('father', FatherSchema);
 
 function validatest_transaction(listNames){
     let schema=object().shape({
@@ -40,5 +34,5 @@ console.log(res);
 }
 // query_db()
 
-exports.Family=Family;
+exports.Father=Father;
 exports.validatest_transaction=validatest_transaction;

@@ -34,6 +34,14 @@ router.get("/:id", async(req, res) => {
   const client_listNames=await client_ListNames.find({userId:id}).catch(err=>{});
   res.send(client_listNames)
 });
+router.get("/familyId/:id", async(req, res) => {
+  const id=req.params.id;
+  // console.log(userId)
+  const client_listNames=await client_ListNames.find({familyId:id}).catch(err=>{});
+  res.send(client_listNames)
+  console.log(client_listNames)
+  
+});
 
 router.put("/:id", async(req, res) => {
   const id=req.params.id;

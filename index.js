@@ -1,5 +1,6 @@
 const express = require("express");
 const grosseries = require("./routes/grossery/grosseries");
+const addGrosseries = require("./routes/grossery/addGrosseries");
 const grossery = require("./routes/grossery/grossery");
 const listNames = require("./routes/listNames");
 
@@ -10,7 +11,20 @@ const clientStock = require("./routes/ClientStock");
 const store_transaction = require("./routes/store_transaction");
 const st_owner = require("./routes/Owner");
 const st_worker = require("./routes/Worker");
+const family = require("./routes/Family");
+const father = require("./routes/Father");
+const daughter = require("./routes/Daughter");
+const mother = require("./routes/Mother");
+const storeWorker = require("./routes/storeWorker");
+
+const son = require("./routes/Son");
 const store = require("./routes/Store");
+const supplier = require("./routes/supplier");
+const supplierWorker = require("./routes/supplierWorker");
+const manifacture = require("./routes/manifacture");
+const manifactureWorker = require("./routes/manifactureWorker");
+const supplierOwner = require("./routes/supplierOwner");
+const manifactureOwner = require("./routes/manifactureOwner");
 const store_stockAlert = require("./routes/StoreStockAlert");
 const store_perimationAlert = require("./routes/StorePerimationAlert");
 const store_global_stock = require("./routes/globalStoreStock");
@@ -39,20 +53,31 @@ const expoPushTokens = require("./routes/expoPushTokens");
 const helmet = require("helmet");
 const compression = require("compression");
 const app = express();
-
 const config=require("./startup/db");
-app.use(express.static("public"));
 app.use(express.urlencoded({extended:true}));
 app.use(helmet());
 app.use(compression());
-
+app.use('/public',express.static("public"));
 app.use("/api/grossery", grossery);
 app.use("/api/grosseries", grosseries);
+app.use("/api/grosseries_temp", addGrosseries);
 app.use("/api/listNames", listNames);
 app.use("/api/st_trans", store_transaction);
 app.use("/api/st_owner", st_owner);
 app.use("/api/st_worker", st_worker);
+app.use("/api/family",family);
+app.use("/api/father",father);
+app.use("/api/son",son);
+app.use("/api/storeWorker",storeWorker);
+app.use("/api/daughter",daughter);
+app.use("/api/mother",mother);
 app.use("/api/store", store);
+app.use("/api/supplier",supplier);
+app.use("/api/supplierWorker",supplierWorker);
+app.use("/api/manifacture",manifacture);
+app.use("/api/manifactureWorker",manifactureWorker);
+app.use("/api/supplierOwner",supplierOwner);
+app.use("/api/manifactureOwner",manifactureOwner);
 app.use("/api/st_stock_alert", store_stockAlert);
 app.use("/api/st_perimation_alert", store_perimationAlert);
 app.use("/api/st_global_stock", store_global_stock);
@@ -79,7 +104,6 @@ app.use("/api/auth", auth);
 app.use("/api/my", my);
 app.use("/api/expoPushTokens", expoPushTokens);
 app.use("/api/messages", messages);
-
 const port = process.env.PORT || 9000
 app.listen(port, function() {
   console.log(`Server started on port ${port}...`);

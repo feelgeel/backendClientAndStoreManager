@@ -7,6 +7,7 @@ const  ClientlistNameSchema = new mongoose.Schema({
     timestamp:Number,
     totalQuantity:Number,
     userId:String,
+    familyId:String,
     unfinished:Number,
     totalPrice:Number,
     finished:Number,

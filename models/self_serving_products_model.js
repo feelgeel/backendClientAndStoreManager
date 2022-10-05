@@ -10,8 +10,9 @@ self_serving_productsSchema = new mongoose.Schema({
      listId:String,
     quantity:Number,
     ByuPrice:Number,
-    benefit:Number,
     stockAlert:Number,
+    perimationDate:String,
+    perimationAlert:Number,
 });
 // _id:"fhkdsvh85vue",
 //     productId:"hfdtjksf484f"

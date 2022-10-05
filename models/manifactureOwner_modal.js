@@ -2,19 +2,12 @@ const  mongoose = require('mongoose');
 
 const {string,object, number}=require("yup");
 
-FamilySchema = new mongoose.Schema({
+ManifactureOwnerSchema = new mongoose.Schema({
     timestamp:Number,
-    name:String,
-    cash:Number,
+    userId:String,
+    manifatureId:String,
 });
-// _id:"fhkdsvh85vue",
-//     productId:"hfdtjksf484f"
-//     listId:"hfyj815",
-//     userId:"jvjds4855dvhyd"
-//     quantity:5,
-//     status:"true",
-//     modes:"client",
-const  Family = mongoose.model('Family', FamilySchema);
+const  ManifactureOwner = mongoose.model('ManifactureOwner', ManifactureOwnerSchema);
 
 function validatest_transaction(listNames){
     let schema=object().shape({
@@ -34,5 +27,5 @@ console.log(res);
 }
 // query_db()
 
-exports.Family=Family;
+exports.ManifactureOwner=ManifactureOwner;
 exports.validatest_transaction=validatest_transaction;

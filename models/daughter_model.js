@@ -2,10 +2,10 @@ const  mongoose = require('mongoose');
 
 const {string,object, number}=require("yup");
 
-FamilySchema = new mongoose.Schema({
+DaughterSchema = new mongoose.Schema({
     timestamp:Number,
-    name:String,
-    cash:Number,
+    familyId:String,
+    userId:String,
 });
 // _id:"fhkdsvh85vue",
 //     productId:"hfdtjksf484f"
@@ -14,7 +14,7 @@ FamilySchema = new mongoose.Schema({
 //     quantity:5,
 //     status:"true",
 //     modes:"client",
-const  Family = mongoose.model('Family', FamilySchema);
+const  Daughter = mongoose.model('Daughter', DaughterSchema);
 
 function validatest_transaction(listNames){
     let schema=object().shape({
@@ -34,5 +34,5 @@ console.log(res);
 }
 // query_db()
 
-exports.Family=Family;
+exports.Daughter=Daughter;
 exports.validatest_transaction=validatest_transaction;

@@ -13,6 +13,7 @@ const  userSchema = new mongoose.Schema({
     password:String,//required
     type:String,//required
     gender:String,
+    image_front_url:String
  
 
 });
